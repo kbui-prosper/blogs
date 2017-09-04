@@ -115,3 +115,7 @@ The code above will set `justAnArray.age` to be `0`. Arrays normally don't have 
 ## Take-away
 
 Whenever a function is invoked, the Javascript engine assigns an object to the `this` variable. Which object does the engine assign to the `this` variable depends completely on how the variable is invoked, and has absolutely nothing to do with how a variable is defined.
+
+[Home][home]
+
+[home]: ../README.md
