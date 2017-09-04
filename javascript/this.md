@@ -108,7 +108,7 @@ justAnArray.rebirth = rebirth; // Still the exact same function
 justAnArray.rebirth();
 ```
 
-The code above will set `justAnArray.age` to be `0`, while leaving `person1.age` alone. Arrays normally don't have an `age` attribute, but `justAnArray` now has an `age` attribute, and it has a value of `0`. Again, you might be arguing that `justAnArray.rebirth = rebirth;` somehow messes with the function itself. Just trust me that they are the exact same function in memory. I'll prove it another time.
+The code above will set `justAnArray.age` to be `0`, while leaving `person1.age` alone. Arrays normally don't have an `age` attribute, but `justAnArray` now has an `age` attribute, and it has a value of `0`. Again, you might be arguing that this line `justAnArray.rebirth = rebirth;` somehow messes with the function itself. Just trust me that they are the exact same function in memory. I'll prove it another time.
 
 ## `bind`, `apply`, and `call`
 
