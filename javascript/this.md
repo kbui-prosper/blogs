@@ -90,7 +90,9 @@ const person1 = {
 person1.rebirth(); // `this` variable is assigned the `person` object
 ```
 
-Whenever a function is invoked method style, the `this` variable is assigned the receiver of the method, which, in this case, is `person1`. Take this example:
+Whenever a function is invoked method style, the `this` variable is assigned the receiver of the method, which, in this case, is `person1`. Keep in mind that `this` is assigned `person1` not because of how the function was defined, but because of how the function was invoked.
+
+ Take this example:
 
 ```javascript
 const person1 = {
@@ -102,11 +104,11 @@ const person1 = {
 }
 
 const justAnArray = [1, 2, 3];
-justAnArray.rebirth = rebirth;
+justAnArray.rebirth = rebirth; // Still the exact same function
 justAnArray.rebirth();
 ```
 
-The code above will set `justAnArray.age` to be `0`. Arrays normally don't have an age attribute, but `justAnArray` now has an age attribute, and it has a value of `0`. Again, you might be arguing that `justAnArray.rebirth = rebirth;` somehow messes with the function itself. Just trust me that they are the exact same function in memory. I'll prove it another time.
+The code above will set `justAnArray.age` to be `0`, while leaving `person1.age` alone. Arrays normally don't have an age attribute, but `justAnArray` now has an age attribute, and it has a value of `0`. Again, you might be arguing that `justAnArray.rebirth = rebirth;` somehow messes with the function itself. Just trust me that they are the exact same function in memory. I'll prove it another time.
 
 ## `bind`, `apply`, and `call`
 
