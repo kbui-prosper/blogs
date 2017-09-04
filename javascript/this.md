@@ -112,7 +112,7 @@ The code above will set `justAnArray.age` to be `0`, while leaving `person1.age`
 
 ## `bind`, `apply`, and `call`
 
-`bind`, `apply`, and `call` simply reassigns a new value to the `this` variable.
+Using `bind`, `apply`, or `call` is the same as manually assigning a value to `this`.
 
 ## Take-away
 
