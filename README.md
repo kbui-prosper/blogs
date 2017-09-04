@@ -1,6 +1,6 @@
 # Khai Bui's Blogs
 
 ## Javascript
-test [Understanding `this` as dependent of the lexical context][js-this] test
+[Understanding `this` as dependent of the lexical context][js-this]
 
 [js-this]: /javascript/this.md
