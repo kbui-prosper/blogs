@@ -98,7 +98,7 @@ In this code snippet, I created a simple array, and assign it to the variable `j
 
 ## The Take-away
 
-Across all circumstances, `arrowThis` returns the `apple` object, while `classicThis` returns a different object every time, depending on how it is called. This leads to, perhaps, one of the most over-looked behavior difference between arrow functions and classic functions:
+Across all circumstances, `arrowThis` returns the `apple` object, while `classicThis` returns a different object every time, depending on how it is called. This leads to, perhaps, one of the most important behavior differences between arrow functions and classic functions:
 * __For arrow functions, `this` variable is determined by the lexical context of the definition of the function.__
 * __For classic functions, `this` variable is determined by the lexical context of the invocation of the function.__
 
