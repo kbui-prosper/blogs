@@ -106,9 +106,9 @@ Let me explain...
 
 ## For arrow functions, `this` variable is determined by the execution context of the definition of the function.
 
-The execution context of definition is the context in which a function is defined. In our example, `() => console.log(this)` is defined inside a function inside the `apple` object. In this context, `this` is equal to the `apple` object. Therefore, invoking `arrowThis` will always return `apple`, regardless of how it is invoked. This is because the arrow function was defined in our code where `this` variable points to the `apple` object
+The execution context of definition is the context in which a function is defined. In our example, `() => console.log(this)` is defined inside a function inside the `apple` object. The `arrowThis` function is created by invoking `apple.generateArrowThis`. In this execution context, `this` is equal to the `apple` object. Therefore, invoking `arrowThis` will always return `apple`, regardless of how it is invoked. This is because the arrow function was defined in an execution context where `this` variable points to the `apple` object.
 
-## For classic functions, `this` variable is determined by the lexical context of the invocation of the function
+## For classic functions, `this` variable is determined by the method of invocation of the function
 
 The method of invocation is how a function is invoked in our code. For example, `classicThis`, when invoked Function Style, returns the global object. `classicThis`, when invoked Method Style, returns the receiver of the method. If this part is confusing, please re-read [the `this` variable][js-this].
 
