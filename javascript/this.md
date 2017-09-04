@@ -76,7 +76,7 @@ Now some of you might argue that this line `const rebirth = person1.rebirth;` so
 
 ## When a Function Is Invoked Method Style
 
-The following code will set `person1.age` to 0.
+The following code will set `person1.age` to `0`.
 
 ```javascript
 const person1 = {
