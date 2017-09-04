@@ -32,7 +32,7 @@ arrowThis(); // returns {name: "Apple", generateArrowThis: ƒ, generateClassicTh
 classicThis(); // returns the global object
 ```
 
-A few things happened in the code snippet above. First, the `apple` object is created, and it has 3 attributes: a `name` that we can use to identify this object, a 'generateArrowThis' function that returns an arrow function, a `generateClassicThis` that returns a classic JS function.
+A few things happened in the code snippet above. First, the `apple` object is created, and it has 3 attributes: a `name` that we can use to identify this object, a `generateArrowThis` function that returns an arrow function, a `generateClassicThis` that returns a classic JS function.
 
 Then, 2 global variables are created, `arrowThis` and `classicThis`, in order to store the arrow functions and the classic functions.
 
