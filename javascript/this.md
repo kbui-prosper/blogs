@@ -116,7 +116,7 @@ Using `bind`, `apply`, or `call` is the same as manually assigning a value to `t
 
 ## Take-away
 
-Whenever a function is invoked, the Javascript engine assigns an object to the `this` variable. Which object does the engine assign to the `this` variable depends completely on how the variable is invoked, and has absolutely nothing to do with how a variable is defined.
+Whenever a function is invoked, the Javascript engine assigns an object to the `this` variable. Which object the engine assigns to the `this` variable depends completely on how the variable is invoked, and has absolutely nothing to do with how a variable is defined.
 
 [Home][home]
 
