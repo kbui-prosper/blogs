@@ -1,6 +1,6 @@
 Before reading this article, make sure you have a strong understanding of [the `this` variable][js-this] first.
 
-This article also assumes the reader to have some understanding of arrow function its syntax.
+This article also assumes the reader to have some understanding of arrow function and its syntax.
 
 [js-this]: this.md
 
