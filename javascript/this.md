@@ -1,4 +1,11 @@
-# Understanding `this` as Dependent of the Lexical Context of Invocation
+---
+title: "The title"
+author: |
+  | The author
+  | The affiliation
+date: "9 April 2015"
+output: beamer_presentation
+---
 
 This post aims make the `this` variable feel more predictable and consistent.
 
