@@ -29,7 +29,7 @@ mySomething.myFunction();
 ```
 The `this` variable will return a different value, depending on how you invoke a function.
 
-## When a Function Is Invoked Function style
+## When a Function Is Invoked Function Style
 
 Whenever a function is invoked function style, the `this` variable will always return the global object.
 Take the same example we had earlier:
@@ -70,4 +70,48 @@ rebirth(); // invoking rebirth function style
 console.log(person1); // {name: "John Smith", age: 30, rebirth: ƒ}
 ```
 
-Try running this code in your favorite Javascript engine and you will see that `person1.age` is untouched. However, look up the age attribute of the global object (`global.age` in Node and `window.age` in any browser) and you will see that your global object suddenly has an `age` of `0`.
+Try running this code in your favorite Javascript engine and you will see that `person1.age` is untouched. However, look up the age attribute of the global object (`global.age` in Node and `window.age` in any browser) and you will see that your global object has an `age` of `0`. This is because any function, when invoked function style, has the global object assigned to `this`.
+
+Now some of you might argue that this line `const rebirth = person1.rebirth;` somehow messes with the `this` variable. Keep in mind that in Javascript, whenever a variable is assigned a function (in this case, `const rebirth` is assigned the function `rebirth`), the variable is only passed a reference to that function. `const rebirth` is assigned only a reference, and it points to the exact same function in memory as `person1.rebirth`. I could go on to prove that this is the case, but thats outside the scope of this post.
+
+## When a Function Is Invoked Method Style
+
+The following code will set `person1.age` to 0.
+
+```javascript
+const person1 = {
+  name: 'John Smith',
+  age: 30,
+  rebirth() {
+    this.age = 0;
+  }
+}
+
+person1.rebirth(); // `this` variable is assigned the `person` object
+```
+
+Whenever a function is invoked method style, the `this` variable is assigned the receiver of the method, which, in this case, is `person1`. Take this example:
+
+```javascript
+const person1 = {
+  name: 'John Smith',
+  age: 30,
+  rebirth() {
+    this.age = 0;
+  }
+}
+
+const justAnArray = [1, 2, 3];
+justAnArray.rebirth = rebirth;
+justAnArray.rebirth();
+```
+
+The code above will set `justAnArray.age` to be `0`. Arrays normally don't have an age attribute, but `justAnArray` now has an age attribute, and it has a value of `0`. Again, you might be arguing that `justAnArray.rebirth = rebirth;` somehow messes with the function itself. Just trust me that they are the exact same function in memory. I'll prove it another time.
+
+## `bind`, `apply`, and `call`
+
+`bind`, `apply`, and `call` simply reassigns a new value to the `this` variable.
+
+## Take-away
+
+Whenever a function is invoked, the Javascript engine assigns an object to the `this` variable. Which object does the engine assign to the `this` variable depends completely on how the variable is invoked, and has absolutely nothing to do with how a variable is defined.
