@@ -8,7 +8,7 @@ The `this` variable is a variable given to us by the Javascript engine to be use
 
 ```javascript
 const myFunction = function () {
-  console.log(this); // `this` can be called being defined or assigned a value
+  console.log(this); // `this` can be called without having been defined or assigned a value
 };
 
 myFunction();
