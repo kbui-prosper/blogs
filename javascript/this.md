@@ -1,4 +1,4 @@
-# Understanding `this` as Dependent of the Lexical Context of Invocation
+# Understanding `this` as Dependent of the Lexical Context of Invocation - by Khai Bui
 
 This post aims make the `this` variable feel more predictable and consistent.
 
