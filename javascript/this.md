@@ -72,7 +72,7 @@ console.log(person1); // {name: "John Smith", age: 30, rebirth: ƒ}
 
 Try running this code in your favorite Javascript engine and you will see that `person1.age` is untouched. However, look up the age attribute of the global object (`global.age` in Node and `window.age` in any browser) and you will see that your global object has an `age` of `0`. This is because any function, when invoked function style, has the global object assigned to `this`.
 
-Now some of you might argue that this line `const rebirth = person1.rebirth;` somehow messes with the `this` variable. Keep in mind that in Javascript, whenever a variable is assigned a function (in this case, `const rebirth` is assigned the function `rebirth`), the variable is only passed a reference to that function. `const rebirth` is assigned only a reference, and it points to the exact same function in memory as `person1.rebirth`. `const rebirth` is exactly the same as `person1.rebirth`.
+Now some of you might argue that this line `const rebirth = person1.rebirth;` somehow messes with the function itself. Keep in mind that in Javascript, whenever a variable is assigned a function (in this case, `const rebirth` is assigned the function `rebirth`), the variable is only passed a reference to that function. `const rebirth` is assigned only a reference, and it points to the exact same function in memory as `person1.rebirth`. `const rebirth` is exactly the same as `person1.rebirth`. Here is a [mini-proof][js-function-references].
 
 ## When a Function Is Invoked Method Style
 
@@ -121,3 +121,4 @@ Whenever a function is invoked, the Javascript engine assigns an object to the `
 [Home][home]
 
 [home]: ../README.md
+[js-function-references]: /javascript/js_function_references.md
