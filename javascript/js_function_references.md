@@ -30,7 +30,7 @@ Similarly, when you inspect the `name` attribute of these variables, you will ge
   console.log(person1.rebirth.name); // 'rebirth'
 ```
 
-When I modify the name attribute of one variable, it modifies the name attribute of both variables:
+When I modify an attribute of one variable, it modifies the same attribute for the other variable:
 
 ```javascript
   rebirth.someAttr = 'whatever string';
