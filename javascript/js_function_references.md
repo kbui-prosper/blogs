@@ -16,7 +16,7 @@ const person1 = {
 const rebirth = person1.rebirth;
 ```
 
-Now, when you inspect `rebirt` and `person1.rebirth` in your javascript REPL, you will see that they return the same values.
+Now, when you inspect `rebirth` and `person1.rebirth` in your javascript REPL, you will see that they return the same values.
 
 ```javascript
 console.log(rebirth); // ƒ rebirth() { this.age = 0; }
