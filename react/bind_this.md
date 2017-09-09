@@ -174,7 +174,7 @@ class StringLength extends React.Component {
 }
 ```
 
-This approach, at first, might appear to be using the same `inputChange` callback for every instance of `StringLength`. So if you have 1000 `StringLength` instances on your page for some reason, you might think they all use the same `inputChange`, and being space efficient. The cold harsh truth is, every time `bind(this)` is called, a new function is created. According to official [MDN Documentation][mdn-bind], `bind()` returns a new function. `bind()` does not hold a reference to the old function, and simply is a brand new function in memory. So with this in mind, we might as well use arrow functions. ¯\\\_(ツ)_/¯
+This approach, at first, might appear to be using the same `inputChange` callback for every instance of `StringLength`. So if you have 1000 `StringLength` instances on your page for some reason, you might think they all use the same `inputChange`, and being space efficient. The cold harsh truth is, every time `bind(this)` is called, a new function is created. According to official [MDN Documentation][mdn-bind], `bind()` returns a new function. `bind()` does not hold a reference to the old function, and simply is a brand new function in memory. Because of this, every time a new instance of `StringLength` is created, `render()` will create a new function `inputChange`, where `this` is appropriately bound. So with this in mind, we might as well use arrow functions. ¯\\\_(ツ)_/¯
 
 [Home][home]
 
