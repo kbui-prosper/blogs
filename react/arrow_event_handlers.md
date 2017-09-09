@@ -29,6 +29,10 @@ class StringLength extends React.Component {
 }
 ```
 
+[Live Version][demo]
+
+[demo]: https://codepen.io/khaivubui/full/JygGKZ/
+
 ## The work-around: Arrow Functions
 
 We developers naturally shy away from repeatedly typing the same code again and again. In the case of React, whenever an event handler, for example, `inputChange`, is passed into a React element/component, we have to do `.bind(this)`. This leads to multiple occurrences of the code `.bind(this)` in React apps, which doesn't appear very DRY. Intuitively, arrow functions come to mind when finding a solution to DRY up our code. Before reading on about the use of the arrow functions as a solution to avoid binding `this`, make sure you take a look at [this analysis][js-arrow-this] of arrow functions.
