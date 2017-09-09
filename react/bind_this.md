@@ -32,4 +32,5 @@ class StringLength extends React.Component {
 ```
 
 This React component initializes with its `state` being `{ inputLength: 0 }`, and renders an `<input>` field of type `text`. Every time a change is made to this input field, `onChange` attribute triggers `this.inputChange`, which simply sets a new state. The `render` method also renders the `this.state.inputLength`. You can see this code in action by clicking [here][demo].
+
 [demo]: https://codepen.io/khaivubui/full/JygGKZ/
