@@ -1,4 +1,4 @@
-# Using Arrow Functions to Avoid Binding `this` for Callback Functions in React
+# Using Arrow Functions to Avoid Binding `this` for Callback Functions in React - by Khai Bui
 
 ## The conventional way of handling DOM events
 
