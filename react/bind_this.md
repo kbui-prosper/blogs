@@ -65,7 +65,7 @@ Most of the things going on here is beyond the scope of this analysis. The key t
   onChange: this.inputChange.bind(this)
 }
 ```
-This approach assigns the `inputChange` method to the `onChange` key of this object, and passes this object into `React.createElement`. Because of this, when this method is invoked within the React element, `this` no longer points to `StringLength` component.
+This approach assigns the `inputChange` method to the `onChange` key of this object, and passes this object into `React.createElement`. Because of this, when `inputChange` is invoked within the React element, it is invoked as `onChange`, and `this` no longer points to `StringLength` component.
 
 ## What happens when a classic function is passed into another function as a callback?
 
