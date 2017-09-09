@@ -1,4 +1,4 @@
-# Mini-Proof that Functions are Passed by Reference in Javascript
+# Mini-Proof that Functions are Passed by Reference in Javascript - by Khai Bui
 
 ## Functions Are Objects, and Objects are Passed by Reference
 
