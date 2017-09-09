@@ -11,5 +11,7 @@
 
 ## React
 * [The reason why you have to `bind(this)` for callback functions in React ][react-bind-this]
+* [Using Arrow Functions to Avoid Binding for Callback Functions in React][arrow-event-handlers]
 
 [react-bind-this]: /react/bind_this.md
+[arrow-event-handlers]: /react/arrow_event_handlers.md
