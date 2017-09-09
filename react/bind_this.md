@@ -39,7 +39,7 @@ Now, note that inside the `<input>` tag, for the `onChange` handler, the `inputC
 
 ## What's really going on under the hood of the render function
 
-JSX is actually not real javascript, and is compiled to real javascript using Babel. Babel has an amazing [REPL][babel-repl], let's try it out and see what's really going on under the hood. [Click here][babel-repl].
+JSX is actually not real javascript, and is compiled to real javascript using Babel. Babel has an amazing online [REPL][babel-repl] that we can play around with. Let's try it out and see what's really going on under the hood. [Click here][babel-repl].
 
 [babel-repl]:https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=MYGwhgzhAEDKAuAnAlgOwOYBkCmH4AtpsAPeXAExgCVsxh4A6AYQHsBbABxdV3mgG8AUNGjBuEJAFd6LRNAAUASgHCR0CJI7ZESgNyqRBZBAYSwZaAF4VatWg6T4OPPgBc0AAwHoAX1V_Ve0cmfDAMbAVsADdeZSFbIxMIbHgEc2x5eNtoIKdcdAJ3aN4GeDBEdBSGKLAQSWwGEHyCbx9FfREAkUQKbQU47x74SURUBW8RAB5yZCiAPgnoSdzoeABPLUsAcjJSLcXskW4QsMrLfkSGXJPwhgAjNHJ5RMUfAHoFw5EL_GNTMrIV1QDjyLj8X0mbxm828in8gh8QA&debug=false&circleciRepo=&evaluate=false&lineWrap=false&presets=react&prettier=false&targets=&version=6.26.0
 
