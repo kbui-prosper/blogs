@@ -1,4 +1,4 @@
-# The reason why you have to `bind(this)` for callback functions in React - by Khai Bui
+# ~~The reason why you have to `bind(this)` for callback functions in React - by Khai Bui~~ (Article under review)
 
 ## The conventional way of handling DOM events
 
