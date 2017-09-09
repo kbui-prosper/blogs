@@ -42,3 +42,26 @@ Now, note that inside the `<input>` tag, for the `onChange` handler, the `inputC
 JSX is actually not real javascript, and is compiled to real javascript using Babel. Babel has an amazing [REPL][babel-repl], let's try it out and see what's really going on under the hood. [Click here][babel-repl].
 
 [babel-repl]:https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=MYGwhgzhAEDKAuAnAlgOwOYBkCmH4AtpsAPeXAExgCVsxh4A6AYQHsBbABxdV3mgG8AUNGjBuEJAFd6LRNAAUASgHCR0CJI7ZESgNyqRBZBAYSwZaAF4VatWg6T4OPPgBc0AAwHoAX1V_Ve0cmfDAMbAVsADdeZSFbIxMIbHgEc2x5eNtoIKdcdAJ3aN4GeDBEdBSGKLAQSWwGEHyCbx9FfREAkUQKbQU47x74SURUBW8RAB5yZCiAPgnoSdzoeABPLUsAcjJSLcXskW4QsMrLfkSGXJPwhgAjNHJ5RMUfAHoFw5EL_GNTMrIV1QDjyLj8X0mbxm828in8gh8QA&debug=false&circleciRepo=&evaluate=false&lineWrap=false&presets=react&prettier=false&targets=&version=6.26.0
+
+Spending a few minutes analyzing the Babel compilation, we can see that the `constructor` function and `inputChange` function are exactly the same. The `render` fuction, however, is quite different. Looking at the right side of the Babel REPL, you can see that our render function is compiled to the following:
+```javascript
+render() {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement('input', { type: 'text',
+      onChange: this.inputChange.bind(this) }),
+    this.state.inputLength
+  );
+}```
+
+Most of the things going on here is beyond the scope of this analysis. The key takeaway here is that `this.inputChange` is passed into the React element as part of a POJO (Plain Old Javascript Object). Specifically, this object:
+```javascript
+{
+  type: 'text',
+  onChange: this.inputChange.bind(this)
+}
+```
+This approach assigns the `inputChange` method to the `onChange` key of this object, and passes this object into `React.createElement`. Because of this, when this method is invoked within the React element, the `this` binding is lost.
+
+## The ambitious work-around: Arrow Functions
