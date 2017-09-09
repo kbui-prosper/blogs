@@ -173,3 +173,7 @@ class StringLength extends React.Component {
 ```
 
 Yes it is a little annoying with `this` binding, but with this approach, there is only 1 `inputChange` function (and this function sits in `StringLength.prototype`), shared among all instances of `StringLength` (space efficient), has the same functionality among all instances (consistent), and has correct `this` binding, which ensures that `setState` sets the state of the correct instance.
+
+[Home][home]
+
+[home]: ../README.md
