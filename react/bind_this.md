@@ -67,6 +67,36 @@ Most of the things going on here is beyond the scope of this analysis. The key t
 ```
 This approach assigns the `inputChange` method to the `onChange` key of this object, and passes this object into `React.createElement`. Because of this, when this method is invoked within the React element, the `this` binding is lost.
 
+## What happens when a classic function is passed into another function as a callback?
+
+Consider this example
+
+```javascript
+// a simple function that invokes whatever is passed in
+const runCallback = function (callback) {
+    callback();
+}
+
+// a simple Dog class with 1 prototype method `showThis` that simply logs `this`
+class Dog {
+    constructor () {
+        this.name = 'dog'
+    }
+
+    showThis () {
+        console.log(this);
+    }
+}
+
+const dog = new Dog // Dog {name: "dog"}
+
+dog.showThis() // this logs: Dog {name: "dog"}
+
+runCallback(dog.showThis) // this logs: undefined
+```
+
+As you can see, when the `dog` instance invokes `showThis`, the `dog` instance is logged on the console. But when `dog.showThis` is passed inside another function, it logs `undefined`. Taking a look at `runCallback` one more time and we can see that whatever we pass in, it is assigned to the variable `callback`. When this variable `callback` is invoked, it does not have a receiver, it was invoked function style. There is no more reference to the `dog` object inside `runCallback`. The similar thing happens with passing in `inputChange` to the `createElement` function.
+
 ## The work-around: Arrow Functions
 
 We developers naturally shy away from repeatedly typing the same code again and again. In the case of React, whenever an event handler, for example, `inputChange`, is passed into a React element/component, we have to do `.bind(this)`. This leads to multiple occurrences of the code `.bind(this)` in React apps, which doesn't appear very DRY. Intuitively, arrow functions come to mind when finding a solution to DRY up our code. Before reading on about the use of the arrow functions as a solution to avoid binding `this`, make sure you take a look at [this analysis][js-arrow-this] of arrow functions.
