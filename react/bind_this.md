@@ -73,7 +73,7 @@ We developers naturally shy away from repeatedly typing the same code again and 
 
 [js-arrow-this]: ../javascript/arrow_and_this.md
 
-Consider this approach:
+Consider approach 1:
 
 ```javascript
 StringLength.prototype.inputChange = (e) => {
@@ -82,3 +82,94 @@ StringLength.prototype.inputChange = (e) => {
   });
 }
 ```
+
+This approach replaces our regular prototype function `inputChange` with an arrow function version. This approach does not work, because, for arrow functions, `this` binding happens when the function is __created__, and in the context in which `inputChange` is created, the `this` variable is the global object (either `window` or `global`), and thus `inputChange` will permanently have the global object assigned to `this`. With that being the case, `this.setState` would never work correctly.
+
+Consider approach 2, where we set inputChange to __return__ an arrow function:
+```javascript
+class StringLength extends React.Component {
+  // ...
+  inputChange () {
+    return (e) => {
+      this.setState({
+        inputLength: event.target.value.length
+      });
+    }
+  }
+
+  render () {
+    return (
+      <div>
+      <input type='text'
+             onChange={this.inputChange()}/>
+        {this.state.inputLength}
+       </div>
+    )
+  }
+}
+```
+
+In tis approach, the `inputChange` function returns an arrow function. For the context in which the arrow function is created, `this` refers to the `StringLength` component, which means we will get the correct `this` binding. This method does work as a workaround to binding `this` for this particular example. __However__, let's take a scenario in which we have to create multiple instances of the `inputChange` component. Every time an `inputChange` is created, `render` is called. If we, for some reason, creates 1000 instances of `inputChange`, we will call `render` 1000 times. And since `inputChange` now returns a function instead of simply doing stuff, 1000 arrow functions will be created. This approach is very space inefficient. In fact, it is so inefficient that we might as well create an `inputChange` for every instance, such as the following approach 3:
+
+```javascript
+class StringLength extends React.Component {
+  constructor () {
+    super();
+    this.state = {
+      inputLength: 0
+    }
+    this.inputChange = (e) => {
+      this.setState({
+        inputLength: event.target.value.length
+      });
+    }
+  }
+
+  render () {
+    return (
+      <div>
+      <input type='text'
+             onChange={this.inputChange.bind(this)}/>
+        {this.state.inputLength}
+       </div>
+    )
+  }
+}
+```
+
+In this example, `inputChange` is created inside `constructor`, guaranteeing that the `this` binding is pointing to the correct instance of `StringLength`. This approach also creates a new arrow function for every instance of `StringLength`. So if we have 1000 `StringLength` instances, we have 1000 arrow functions.
+
+So now, you might be asking yourself, how can I create one arrow function to be shared among 1000 instances of `StringLength`? The answer is simple: It's not possible. Remember that for arrow functions, `this` simply points to the same `this` as the surrounding context in which the arrow function is created. With this in mind, for an arrow function to have the same `this` as a `StringLength` instance, the arrow function __must__ be created __after__ said `StringLength` instance. Therefore, the only way to use arrow functions to handle DOM events is by creating a new arrow function for every instance of React component.
+
+## The good old correct way
+
+Let's revisit our original approach:
+
+```javascript
+class StringLength extends React.Component {
+  constructor () {
+    super();
+    this.state = {
+      inputLength: 0
+    }
+  }
+
+  inputChange (event) {
+    this.setState({
+      inputLength: event.target.value.length
+    });
+  }
+
+  render () {
+    return (
+      <div>
+      <input type='text'
+             onChange={this.inputChange.bind(this)}/>
+        {this.state.inputLength}
+       </div>
+    )
+  }
+}
+```
+
+Yes it is a little annoying with `this` binding, but with this approach, there is only 1 `inputChange` function (and this function sits in `StringLength.prototype`), shared among all instances of `StringLength` (space efficient), has the same functionality among all instances (consistent), and has correct `this` binding, which ensures that `setState` sets the state of the correct instance.
