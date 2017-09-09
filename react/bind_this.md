@@ -55,7 +55,8 @@ render() {
     ),
     this.state.inputLength
   );
-}```
+}
+```
 
 Most of the things going on here is beyond the scope of this analysis. The key takeaway here is that `this.inputChange` is passed into the React element as part of a POJO (Plain Old Javascript Object). Specifically, this object:
 ```javascript
