@@ -43,14 +43,16 @@ JSX is actually not real javascript, and is compiled to real javascript using Ba
 
 [babel-repl]:https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=MYGwhgzhAEDKAuAnAlgOwOYBkCmH4AtpsAPeXAExgCVsxh4A6AYQHsBbABxdV3mgG8AUNGjBuEJAFd6LRNAAUASgHCR0CJI7ZESgNyqRBZBAYSwZaAF4VatWg6T4OPPgBc0AAwHoAX1V_Ve0cmfDAMbAVsADdeZSFbIxMIbHgEc2x5eNtoIKdcdAJ3aN4GeDBEdBSGKLAQSWwGEHyCbx9FfREAkUQKbQU47x74SURUBW8RAB5yZCiAPgnoSdzoeABPLUsAcjJSLcXskW4QsMrLfkSGXJPwhgAjNHJ5RMUfAHoFw5EL_GNTMrIV1QDjyLj8X0mbxm828in8gh8QA&debug=false&circleciRepo=&evaluate=false&lineWrap=false&presets=react&prettier=false&targets=&version=6.26.0
 
-Spending a few minutes analyzing the Babel compilation, we can see that the `constructor` function and `inputChange` function are exactly the same. The `render` fuction, however, is quite different. Looking at the right side of the Babel REPL, you can see that our render function is compiled to the following:
+Spending a few minutes analyzing the Babel compilation, we can see that the `constructor` function and `inputChange` function are exactly the same. The `render` fuction, however, is quite different. Looking at the right side of the Babel REPL, you can see that our `render` function is compiled to the following:
 ```javascript
 render() {
   return React.createElement(
     'div',
     null,
-    React.createElement('input', { type: 'text',
-      onChange: this.inputChange.bind(this) }),
+    React.createElement(
+      'input',
+      { type: 'text', onChange: this.inputChange.bind(this) }
+    ),
     this.state.inputLength
   );
 }```
