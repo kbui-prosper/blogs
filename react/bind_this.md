@@ -1,4 +1,4 @@
-# ~~The reason why you have to `bind(this)` for callback functions in React - by Khai Bui~~ (Article under review)
+# The reason why you have to `bind(this)` for callback functions in React - by Khai Bui
 
 ## The conventional way of handling DOM events
 
@@ -67,7 +67,7 @@ Most of the things going on here is beyond the scope of this analysis. The key t
 ```
 This approach assigns the `inputChange` method to the `onChange` key of this object, and passes this object into `React.createElement`. Because of this, when this method is invoked within the React element, the `this` binding is lost.
 
-## The ambitious but naive work-around: Arrow Functions
+## The work-around: Arrow Functions
 
 We developers naturally shy away from repeatedly typing the same code again and again. In the case of React, whenever an event handler, for example, `inputChange`, is passed into a React element/component, we have to do `.bind(this)`. This leads to multiple occurrences of the code `.bind(this)` in React apps, which doesn't appear very DRY. Intuitively, arrow functions come to mind when finding a solution to DRY up our code. Before reading on about the use of the arrow functions as a solution to avoid binding `this`, make sure you take a look at [this analysis][js-arrow-this] of arrow functions.
 
@@ -109,7 +109,9 @@ class StringLength extends React.Component {
 }
 ```
 
-In this approach, the `inputChange` function returns an arrow function. For the context in which the arrow function is created, `this` refers to the `StringLength` component, which means we will get the correct `this` binding. This method does work as a workaround to binding `this` for this particular example. __However__, let's take a scenario in which we have to create multiple instances of the `inputChange` component. Every time a `StringLength` is created, `render` is called, and every time `render` is called, the code passed in for `onChange` is run. If we, for some reason, creates 1000 instances of `StringLength`, we will call `render` 1000 times. And since `inputChange` now returns a function instead of simply doing stuff, 1000 arrow functions will be created. This approach is very space inefficient. In fact, it is so inefficient that we might as well create an `inputChange` for every instance, such as the following approach 3:
+In this approach, the `inputChange` function returns an arrow function. For the context in which the arrow function is created, `this` refers to the `StringLength` component, which means we will get the correct `this` binding. Also note that for `onChange={this.inputChange()}`, we are invoking the `inputChange` function, not just passing it in. Invoking the function will return the arrow function `(e) => { //... }`, which is what we want to pass in as the event handler for `onChange`.
+
+Consider approach 3:
 
 ```javascript
 class StringLength extends React.Component {
@@ -137,11 +139,11 @@ class StringLength extends React.Component {
 }
 ```
 
-In this example, `inputChange` is created inside `constructor`, guaranteeing that the `this` binding is pointing to the correct instance of `StringLength`. This approach also creates a new arrow function for every instance of `StringLength`. So if we have 1000 `StringLength` instances, we have 1000 arrow functions.
+In this example, `inputChange` is created inside `constructor`, guaranteeing that the `this` binding is pointing to the correct instance of `StringLength`. This approach also creates a new arrow function for every instance of `StringLength`, same as approach 2.
 
-So now, you might be asking yourself, how can I create one arrow function to be shared among 1000 instances of `StringLength`? The answer is simple: It's not possible. Remember that for arrow functions, `this` simply points to the same `this` as the surrounding context in which the arrow function is created. With this in mind, for an arrow function to have the same `this` as a `StringLength` instance, the arrow function __must__ be created __after__ said `StringLength` instance. Therefore, the only way to use arrow functions to handle DOM events is by creating a new arrow function for every instance of React component.
+So now, some of you might be asking yourself: Wouldn't it be very space inefficient to create a new function for every instance of `StringLength`?
 
-## The good old correct way
+## The truth about the good old correct way
 
 Let's revisit our original approach:
 
@@ -172,8 +174,9 @@ class StringLength extends React.Component {
 }
 ```
 
-Yes it is a little annoying with `this` binding, but with this approach, there is only 1 `inputChange` function (and this function sits in `StringLength.prototype`), shared among all instances of `StringLength` (space efficient), has the same functionality among all instances (consistent), and has correct `this` binding, which ensures that `setState` sets the state of the correct instance.
+This approach, at first, might appear to be using the same `inputChange` callback for every instance of `StringLength`. So if you have 1000 `StringLength` instances on your page for some reason, you might think they all use the same `inputChange`, and being space efficient. The cold harsh truth is, every time `bind(this)` is called, a new function is created. According to official [MDN Documentation][mdn-bind], `bind()` returns a new function. `bind()` does not hold a reference to the old function, and simply is a brand new function in memory. So with this in mind, we might as well use arrow functions. ¯\\\_(ツ)_/¯
 
 [Home][home]
 
 [home]: ../README.md
+[mdn-bind]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind

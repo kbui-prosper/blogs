@@ -10,6 +10,6 @@
 [js-function-references]: /javascript/js_function_references.md
 
 ## React
-* [~~The reason why you have to `bind(this)` for callback functions in React~~ (article under review)][react-bind-this]
+* [The reason why you have to `bind(this)` for callback functions in React ][react-bind-this]
 
 [react-bind-this]: /react/bind_this.md
