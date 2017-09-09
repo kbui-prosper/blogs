@@ -39,7 +39,7 @@ We developers naturally shy away from repeatedly typing the same code again and 
 
 [js-arrow-this]: ../javascript/arrow_and_this.md
 
-Consider approach 1:
+## Approach 1
 
 ```javascript
 StringLength.prototype.inputChange = (e) => {
@@ -51,7 +51,9 @@ StringLength.prototype.inputChange = (e) => {
 
 This approach replaces our regular prototype function `inputChange` with an arrow function version. This approach does not work, because, for arrow functions, `this` binding happens when the function is __created__, and in the context in which `inputChange` is created, the `this` variable is the global object (either `window` or `global`), and thus `inputChange` will permanently have the global object assigned to `this`. With that being the case, `this.setState` would never work correctly.
 
-Consider approach 2, where we set inputChange to __return__ an arrow function:
+## Approach 2
+
+Consider approach 2, where we set `inputChange` to __return__ an arrow function:
 ```javascript
 class StringLength extends React.Component {
   // ...
@@ -77,7 +79,7 @@ class StringLength extends React.Component {
 
 In this approach, the `inputChange` function returns an arrow function. For the context in which the arrow function is created, `this` refers to the `StringLength` component, which means we will get the correct `this` binding. Also note that for `onChange={this.inputChange()}`, we are invoking the `inputChange` function, not just passing it in. Invoking the function will return the arrow function `(e) => { //... }`, which is what we want to pass in as the event handler for `onChange`.
 
-Consider approach 3:
+## Approach 3
 
 ```javascript
 class StringLength extends React.Component {
