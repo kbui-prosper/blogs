@@ -77,7 +77,7 @@ class StringLength extends React.Component {
 }
 ```
 
-In this approach, the `inputChange` function returns an arrow function. For the context in which the arrow function is created, `this` refers to the `StringLength` component, which means we will get the correct `this` binding. Also note that for `onChange={this.inputChange()}`, we are invoking the `inputChange` function, not just passing it in. Invoking the function will return the arrow function `(e) => { //... }`, which is what we want to pass in as the event handler for `onChange`.
+In this approach, the `inputChange` function returns an arrow function. For the context in which the arrow function is created, `this` refers to the `StringLength` component, which means we will get the correct `this` binding. Also note that for `onChange={this.inputChange()}`, we are invoking the `inputChange` function, not just passing it in. Invoking the function will return the arrow function `(e) => { //... }`, which is what we want to pass in as the event handler for `onChange`. This approach works.
 
 ## Approach 3
 
@@ -107,7 +107,7 @@ class StringLength extends React.Component {
 }
 ```
 
-In this example, `inputChange` is created inside `constructor`, guaranteeing that the `this` binding is pointing to the correct instance of `StringLength`. This approach also creates a new arrow function for every instance of `StringLength`, same as approach 2.
+In this example, `inputChange` is created inside `constructor`, guaranteeing that the `this` binding is pointing to the correct instance of `StringLength`. This approach works. This approach also creates a new arrow function for every instance of `StringLength`, same as approach 2.
 
 So now, some of you might be asking yourself: Wouldn't it be very space inefficient to create a new function for every instance of `StringLength`?
 
