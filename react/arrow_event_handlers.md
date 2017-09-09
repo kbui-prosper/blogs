@@ -29,7 +29,7 @@ class StringLength extends React.Component {
 }
 ```
 
-[Live Version][demo]
+[Live Version][demo] (click on `Change View` > `Editor View` to see code)
 
 [demo]: https://codepen.io/khaivubui/full/JygGKZ/
 
@@ -176,7 +176,7 @@ class StringLength extends React.Component { // same as original approach
 }
 ```
 
-[Live Version][demo-2]
+[Live Version][demo-2] (click on `Change View` > `Editor View` to see code)
 
 [demo-2]: https://codepen.io/khaivubui/full/GvVMPv/
 
