@@ -176,6 +176,10 @@ class StringLength extends React.Component { // same as original approach
 }
 ```
 
+[Live Version][demo-2]
+
+[demo-2]: https://codepen.io/khaivubui/full/GvVMPv/
+
 In this last approach, `onChange` is passed an arrow function. Since this arrow function was created in the `render` method, it still has the correct `this`. `this` in the arrow function is the same `this` as the `render` function, which is the correct `StringLength` instance. Of course, this still means that if we have 1000 different `StringLength` components, we will generate 1000 different arrow functions. But keep in mind that inside the arrow function `(event) => this.inputChange(event)`, `inputChange` is the same input change. So if inside `inputChange` is a ton of complicated logic, `inputChange` will not be duplicated (unlike the case of using `bind(this)`, which creates a new function in memory every time). This is the most space efficient approach, because the same `inputChange` in memory is used for every instance of `StringLength`.
 
 [Home][home]
