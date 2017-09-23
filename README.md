@@ -15,3 +15,9 @@
 
 [react-bind-this]: /react/bind_this.md
 [arrow-event-handlers]: /react/arrow_event_handlers.md
+
+
+## Rails + React + Redux
+* [Using Action Cable with React + Redux set up][action-cable-react-redux]
+
+[action-cable-react-redux]: /rails_react_redux/action_cable.md
