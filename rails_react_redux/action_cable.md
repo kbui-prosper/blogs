@@ -91,6 +91,6 @@ Here is the last piece of a puzzle: how does the server send information over? I
   )
 ```
 
-`broadcast` method is invoked with 2 arguments, the first one is the channel identifier (`"chat_room_9000"`), the second one is data (`"Data goes here"`). In real examples, you would want to replace that string with real data.
+`broadcast` method is invoked with 2 arguments, the first one is the channel identifier (`"chat_room_9000"`), the second one is data (`"Data goes here"`). In real examples, you would want to replace `"Data goes here"` with real data in JSON format. You can run this code anywhere you want, in your `controller`, in your `channel`, even in your `model`.
 
 And that's just the overview. I'm kinda tight on time right now, so here's a link for further reading: [Real-Time Rails: Implementing WebSockets in Rails 5 with Action Cable](https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable)
