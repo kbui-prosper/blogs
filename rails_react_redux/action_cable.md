@@ -57,7 +57,7 @@ const subscribeToChatRoom = (chatRoomId) => (
 
 Now we can reuse the `subscribeToChatRoom` as many times as we want (say, over 9000 times?), each time we only need to pass in the `chatRoomId`.
 
-Okay so now we are subscribed to the ChatRoom, can we make it do stuff? Yes we can. Like so:
+Okay so now we are subscribed to the ChatRoom, can we make it do stuff? Yes we can. Just rewrite your front end like so:
 
 ```javascript
 // Some where in your front end javascript
