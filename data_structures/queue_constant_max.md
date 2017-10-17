@@ -152,7 +152,11 @@ queue.dequeue(); // 9
 
 #### A queue using `StackWithMax`
 
+We can rewrite the same `Queue` above, but this time using `StackWithMax`. This gives us access to 2 max values using the `StackWithMax.prototype.max` method, one from the `inStack`, and one from the `outStack`. Then all we have to access the max of the queue is to compare these 2 max values, and that operation is constant.
 
+```javascript
+
+```
 
 [Home][home]
 
