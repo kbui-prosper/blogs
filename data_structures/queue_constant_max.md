@@ -139,6 +139,7 @@ This basic `Queue` can be used like so:
 
 ```javascript
 queue = new Queue;
+
 queue.enqueue(1);
 queue.enqueue(2);
 queue.enqueue(3);
@@ -182,7 +183,7 @@ class QueueWithMax {
     if (this.inStack.max()) {
       if (!this.outStack.max() ||
           this.inStack.max() > this.outStack.max()) {
-        return inStack.max();
+        return this.inStack.max();
       } else {
         return this.outStack.max();
       }
@@ -196,7 +197,28 @@ class QueueWithMax {
 This queue can be used like so:
 
 ```javascript
+queue = new QueueWithMax;
 
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+console.log(queue.max()); // 3
+
+queue.dequeue(); // 1
+queue.dequeue(); // 2
+
+console.log(queue.max()); // 3
+
+queue.enqueue(9);
+queue.enqueue(10);
+
+console.log(queue.max()); // 10
+
+queue.dequeue(); // 3
+queue.dequeue(); // 9
+
+console.log(queue.max()); // 10
 ```
 
 [Home][home]
