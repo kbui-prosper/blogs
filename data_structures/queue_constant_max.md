@@ -6,7 +6,11 @@ This article aims to show the readers one way to build a queue data structure th
 
 ## A stack can maintain a reliable history of maximum values
 
-Intuitively, queues cannot maintain a history of maximum values, because of its first-in-first-out nature. However, a stack data structure, which is last-in-first-out, can easily maintain a history of maximum values. Consider the following basic stack data structure:
+Intuitively, queues cannot maintain a history of maximum values, because of its first-in-first-out nature. However, a stack data structure, which is last-in-first-out, can easily maintain a history of maximum values.
+
+#### Basic stack
+
+Consider the following basic stack data structure:
 
 ```javascript
 class Stack {
@@ -24,7 +28,20 @@ class Stack {
 }
 ```
 
+This stack data structure can be used like this:
 
+```javascript
+myStack = new Stack;
+myStack.push(4);
+myStack.push(77);
+
+console.log(myStack.store); // [4, 77]
+
+myStack.pop(); // 77
+console.log(myStack.store); // [4]
+```
+
+#### Stack with max history
 
 [Home][home]
 
