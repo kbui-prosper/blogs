@@ -1,7 +1,7 @@
 # Khai Bui's Blogs
 
 ## Data Structures
-* [Building a queue that has constant time access O(1) to the maximum (or minimum) value in the queue][queue-constant-max]
+* [Building a queue that has constant time enqueue, constant time dequeue (amortized), and constant time access to the maximum (or minimum) value in the queue][queue-constant-max]
 
 [queue-constant-max]: /data_structures/queue_constant_max.md
 

@@ -1,4 +1,4 @@
-# Building a queue that has constant time access O(1) to the maximum (or minimum) value in the queue
+# Building a queue that has constant time enqueue, constant time dequeue (amortized), and constant time access to the maximum (or minimum) value in the queue
 
 This article aims to show the readers one way to build a queue data structure that can enqueue and dequeue while maintaining an API to access the maximum value in the queue in constant O(1) time.
 
@@ -218,6 +218,8 @@ queue.dequeue(); // 9
 
 console.log(queue.max()); // 10
 ```
+
+If you want to also keep track of the min, simply add a `minHistory` stack to the `Stack` class.
 
 [Home][home]
 
