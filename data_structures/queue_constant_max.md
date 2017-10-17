@@ -70,7 +70,35 @@ class StackWithMax {
     }
     return popped;
   }
+
+  max () {
+    return this.maxHistory[this.maxHistory.length - 1];
+  }
 }
+```
+
+The `StackWithMax` can be used like so:
+
+```javascript
+awesomeStack = new StackWithMax;
+awesomeStack.push(99);
+awesomeStack.push(1);
+awesomeStack.push(50);
+awesomeStack.push(100);
+
+console.log(awesomeStack.store); // [99, 1, 50, 100]
+console.log(awesomeStack.maxHistory); // [99, 100]
+console.log(awesomeStack.max()); // 100
+
+awesomeStack.pop();
+console.log(awesomeStack.store); // [99, 1, 50]
+console.log(awesomeStack.maxHistory); // [99]
+console.log(awesomeStack.max()); // 99
+
+awesomeStack.pop();
+console.log(awesomeStack.store); // [99, 1]
+console.log(awesomeStack.maxHistory); // [99]
+console.log(awesomeStack.max()); // 99
 ```
 
 [Home][home]
