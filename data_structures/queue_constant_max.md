@@ -22,7 +22,7 @@ class Stack {
     this.store.push(val);
   }
 
-  pop (val) {
+  pop () {
     return this.store.pop();
   }
 }
@@ -42,6 +42,36 @@ console.log(myStack.store); // [4]
 ```
 
 #### Stack with max history
+
+We can rewrite our `Stack` class to maintain a `maxHistory`. Every time a new number is pushed into the stack, it will also be pushed to `maxHistory`. Every time a number is popped off the stack, it will be checked against the last item in `maxHistory`. If they are equal, the last item in `maxHistory` will be popped off. It can be implemented like so:
+
+```javascript
+class StackWithMax {
+  constructor () {
+    this.store = [];
+    this.maxHistory = [];
+  }
+
+  push (val) {
+    this.store.push(val);
+
+    // check if maxHistory is empty
+    // then check if the new `val` is the new max
+    if (this.maxHistory.length === 0 ||
+        val >= this.maxHistory[this.maxHistory.length - 1]) {
+      this.maxHistory.push(val);
+    }
+  }
+
+  pop () {
+    const popped = this.store.pop();
+    if (popped === this.maxHistory[this.maxHistory.length - 1]) {
+      this.maxHistory.pop();
+    }
+    return popped;
+  }
+}
+```
 
 [Home][home]
 
