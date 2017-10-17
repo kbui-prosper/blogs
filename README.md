@@ -1,5 +1,10 @@
 # Khai Bui's Blogs
 
+## Data Structures
+* [Building a queue that has constant time access (O(n))to the maximum (or minimum) value in the queue][queue-constant-max]
+
+[queue-constant-max]: /data_structures/queue_constant_max.md
+
 ## Javascript
 * [Understanding `this` as Dependent of the Method of Invocation][js-this]
 * [Understanding `this` in the Context of Arrow Functions][js-arrow-this]
