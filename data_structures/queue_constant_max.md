@@ -135,6 +135,25 @@ class Queue {
 }
 ```
 
+This basic `Queue` can be used like so:
+
+```javascript
+queue = new Queue;
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+queue.dequeue(); // 1
+queue.dequeue(); // 2
+queue.enqueue(9);
+queue.enqueue(10);
+queue.dequeue(); // 3
+queue.dequeue(); // 9
+```
+
+#### A queue using `StackWithMax`
+
+
+
 [Home][home]
 
 [home]: ../README.md
