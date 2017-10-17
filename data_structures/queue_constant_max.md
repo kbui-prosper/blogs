@@ -155,6 +155,47 @@ queue.dequeue(); // 9
 We can rewrite the same `Queue` above, but this time using `StackWithMax`. This gives us access to 2 max values using the `StackWithMax.prototype.max` method, one from the `inStack`, and one from the `outStack`. Then all we have to access the max of the queue is to compare these 2 max values, and that operation is constant.
 
 ```javascript
+class QueueWithMax {
+  constructor () {
+    this.inStack = new StackWithMax;
+    this.outStack = new StackWithMax;
+  }
+
+  enqueue (val) {
+    this.inStack.push(val);
+  }
+
+  dequeue () {
+    if (this.outStack.store.length === 0) {
+      this.fillOutStack();
+    }
+    return this.outStack.pop();
+  }
+
+  fillOutStack () {
+    while (this.inStack.store.length !== 0) {
+      this.outStack.push(this.inStack.pop());
+    }
+  }
+
+  max () {
+    if (this.inStack.max()) {
+      if (!this.outStack.max() ||
+          this.inStack.max() > this.outStack.max()) {
+        return inStack.max();
+      } else {
+        return this.outStack.max();
+      }
+    } else {
+      return this.outStack.max();
+    }
+  }
+}
+```
+
+This queue can be used like so:
+
+```javascript
 
 ```
 
