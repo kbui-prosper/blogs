@@ -101,6 +101,14 @@ console.log(awesomeStack.maxHistory); // [99]
 console.log(awesomeStack.max()); // 99
 ```
 
+## A queue using 2 stacks
+
+Okay fine making a stack that maintains a `maxHistory` is too easy. What about a queue that always has constant access to the max? We can achieve this by making a queue using only stacks. Let's first construct a basic queue using basic stacks. The following code uses the first `Stack` class:
+
+```javascript
+
+```
+
 [Home][home]
 
 [home]: ../README.md
