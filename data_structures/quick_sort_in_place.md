@@ -11,6 +11,10 @@ Quick Sort algorithm can be summarized in 3 simple steps:
 * Everything less than the pivot point goes to the left. Everything else goes to the right.
 * Repeat the process for the left side and the right side
 
+## The simple approach that takes linear space
+
+
+
 [Home][home]
 
 [home]: ../README.md
