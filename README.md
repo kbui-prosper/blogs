@@ -2,8 +2,10 @@
 
 ## Data Structures
 * [Building a queue that has constant time enqueue, constant time dequeue (amortized), and constant time access to the maximum (or minimum) value in the queue][queue-constant-max]
+* [Quick Sort in Place (sub-linear space complexity)][quick-sort-in-place]
 
 [queue-constant-max]: /data_structures/queue_constant_max.md
+[quick-sort-in-place]:/data_structures/quick_sort_in_place.md
 
 ## Javascript
 * [Understanding `this` as Dependent of the Method of Invocation][js-this]
