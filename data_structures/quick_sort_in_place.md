@@ -6,7 +6,10 @@ This article aims to show the reader how to construct quick sort algorithm that 
 
 ## Overview
 
-The approach we will be taking
+Quick Sort algorithm can be summarized in 3 simple steps:
+* Select a pivot point.
+* Everything less than the pivot point goes to the left. Everything else goes to the right.
+* Repeat the process for the left side and the right side
 
 [Home][home]
 
