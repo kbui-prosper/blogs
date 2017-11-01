@@ -8,7 +8,7 @@ Phoenix 1.3x no longer has the `model` folder. Additionally, your `web.ex` file 
 defmodule Discuss.Web do
   # ...
 
-  def model do
+  def model do # this function no longer exists in 1.3
     quote do
       use Ecto.Schema
 
@@ -37,3 +37,12 @@ defmodule Discuss.Web do
   # ...
 end
 ```
+
+The `model` function is completely removed in Phoenix 1.3 and above. However, Phoenix still ships with Ecto. So what this means is that we have to use Ecto manually in our business logic. Here are the 4 key Ecto items:
+
+* `import Ecto` - Not sure what this does.
+* `use Ecto.Schema` - runs the code inside `__using__` function from `Ecto.Schema` module. Add this line where you're writing your schema.
+* `import Ecto.Changeset` - Add this line where you're writing your changeset function.
+* `import Ecto.Query` - Add this line where you're writing your database queries.
+
+That's just the overview for now.
