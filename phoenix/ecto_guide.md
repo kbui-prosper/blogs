@@ -1,3 +1,5 @@
 # Ecto Quick Guide for Going from 1.2x to 1.3x
 
-## Removal of `model` folder
+## Removal of the `model`
+
+Phoenix 1.3x no longer has the `model` folder. Additionally, your `web.ex` file is now renamed to `#{your_app_name}_web.ex` file, and the model section has been removed. Here is a boilerplate `web.ex` file from 1.2:
