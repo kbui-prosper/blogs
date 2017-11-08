@@ -24,3 +24,7 @@ end
 The first function `uniq_chars` is just the entry point, all the logic lies with `uniq_ch_helper`. There are 2 functions `uniq_ch_helper` to match:
 * One is the final case when the index is the same as the length, in which case a list is returned
 * The second is the normal case, where the current letter is put into the `mapset`, and the index `i` is incremented
+
+[Home][home]
+
+[home]: ../README.md

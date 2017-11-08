@@ -46,3 +46,7 @@ The `model` function is completely removed in Phoenix 1.3 and above. However, Ph
 * `import Ecto.Query` - Add this line where you're writing your database queries.
 
 That's just the overview for now.
+
+[Home][home]
+
+[home]: ../README.md
