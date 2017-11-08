@@ -1,4 +1,4 @@
-# Fibonacci Sequence (using Recursion) in Elixir
+# Fibonacci Sequence in Elixir
 
 This article shows a few ways to write a function that returns the nth number of the fibonacci sequence.
 

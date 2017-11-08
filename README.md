@@ -1,9 +1,9 @@
 # Khai Bui's Blogs
 
 ## Elixir
-* [Fibonacci Sequence (using Recursion) in Elixir][fib-rec]
+* [Fibonacci Sequence in Elixir][fib]
 
-[fib-rec]: /elixir/fib_rec.md
+[fib-rec]: /elixir/fib.md
 
 ## Data Structures
 * [Building a queue that has constant time enqueue, constant time dequeue (amortized), and constant time access to the maximum (or minimum) value in the queue][queue-constant-max]
