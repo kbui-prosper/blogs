@@ -1,6 +1,6 @@
 # Unique Characters in String
 
-This article shows one way to write a function that returns an array of unique characters in a string
+This article shows one way to write a function that returns a list of unique characters in a string
 
 ## MapSet solution
 
