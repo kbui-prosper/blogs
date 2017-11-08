@@ -2,8 +2,10 @@
 
 ## Elixir
 * [Fibonacci Sequence in Elixir][fib]
+* [Unique Characters in String][uniq_char_in_str]
 
 [fib]: /elixir/fib.md
+[uniq_char_in_str]: /elixir/uniq_char_in_str.md
 
 ## Data Structures
 * [Building a queue that has constant time enqueue, constant time dequeue (amortized), and constant time access to the maximum (or minimum) value in the queue][queue-constant-max]
