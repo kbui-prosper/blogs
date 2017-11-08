@@ -16,9 +16,9 @@ end
 How it works
 
 ```elixir
-iex(3)> Sentence.reversal "what a weird day"
+iex(2)> Sentence.reversal "what a weird day"
 "day weird a what"
-iex(4)> Sentence.reversal "i like sunshine and apple pies"
+iex(3)> Sentence.reversal "i like sunshine and apple pies"
 "pies apple and sunshine like i"
 ```
 
