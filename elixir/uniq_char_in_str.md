@@ -25,6 +25,15 @@ The first function `uniq_chars` is just the entry point, all the logic lies with
 * One is the final case when the index is the same as the length, in which case a list is returned
 * The second is the normal case, where the current letter is put into the `mapset`, and the index `i` is incremented
 
+How it works:
+
+```elixir
+iex(2)> UniqChars.uniq_chars "mosquitos"
+["i", "m", "o", "q", "s", "t", "u"]
+iex(3)> UniqChars.uniq_chars "elixir is so cool"
+[" ", "c", "e", "i", "l", "o", "r", "s", "x"] 
+```
+
 [Home][home]
 
 [home]: ../README.md
