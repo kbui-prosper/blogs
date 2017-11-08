@@ -24,7 +24,7 @@ defmodule Coin do
 end
 ```
 
-## How it works
+#### How it works
 
 ```elixir
 iex(2)> Coin.min_coinset 2, [1, 5, 7, 10]
@@ -35,6 +35,39 @@ iex(4)> Coin.min_coinset 11, [1, 5, 7, 10]
 [1, 10]
 iex(5)> Coin.min_coinset 12, [1, 5, 7, 10]
 [5, 7]
+```
+
+## When tuple is expected output
+
+```elixir
+defmodule Coin do
+  def min_coinset_t(target, coins) do
+    cond do
+      target in coins -> {target}
+
+      true ->
+        coinsets = coins
+        |> Enum.filter(fn coin -> coin < target end)
+        |> Enum.map(fn coin ->
+          Enum.concat [coin], Tuple.to_list(min_coinset_t(target - coin, coins))
+        end)
+        |> Enum.min_by(&length/1)
+        |> List.to_tuple
+    end
+  end
+end
+```
+
+#### How it works
+```elixir
+iex(2)> Coin.min_coinset_t 3, [1, 5, 7, 10]
+{1, 1, 1}
+iex(3)> Coin.min_coinset_t 8, [1, 5, 7, 10]
+{1, 7}
+iex(4)> Coin.min_coinset_t 12, [1, 5, 7, 10]
+{5, 7}
+iex(5)> Coin.min_coinset_t 15, [1, 5, 7, 10]
+{5, 10}
 ```
 
 [Home][home]
