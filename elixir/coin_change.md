@@ -13,7 +13,7 @@ defmodule Coin do
       target in coins -> [target]
 
       true ->
-        coinsets = coins
+        coins
         |> Enum.filter(fn coin -> coin < target end)
         |> Enum.map(fn coin ->
           Enum.concat [coin], min_coinset(target - coin, coins)
@@ -46,7 +46,7 @@ defmodule Coin do
       target in coins -> {target}
 
       true ->
-        coinsets = coins
+        coins
         |> Enum.filter(fn coin -> coin < target end)
         |> Enum.map(fn coin ->
           Enum.concat [coin], Tuple.to_list(min_coinset_t(target - coin, coins))
