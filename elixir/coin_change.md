@@ -9,11 +9,14 @@ defmodule Coin do
   def min_coinset(target, coins) do
     cond do
       target in coins -> [target]
+
       true ->
-        coins
+        coinsets = coins
         |> Enum.filter(fn coin -> coin < target end)
-        |> Enum.map(fn coin -> [coin] ++ min_coinset(target - coin, coins) end)
-        |> Enum.min_by(fn coin -> &length/1 end)
+        |> Enum.map(fn coin ->
+          Enum.concat [coin], min_coinset(target - coin, coins)
+        end)
+        |> Enum.min_by(&length/1)
     end
   end
 end
