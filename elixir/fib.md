@@ -24,7 +24,7 @@ defmodule Fibonacci do
 
   def fib(n), do: fib_helper(0, 1, 1, n)
 
-  def fib_helper(prev, curr, curr_i, target_i) do
+  defp fib_helper(prev, curr, curr_i, target_i) do
     cond do
       curr_i == target_i ->
         curr
