@@ -2,7 +2,9 @@
 
 This article solves the infamous coin change problem ([wiki](https://en.wikipedia.org/wiki/Change-making_problem)) in Elixir!
 
-## The solution
+## When list is expected output
+
+Please note that in elixir, `[7]` is the same as `'\a'`, so using a list to represent numbers can feel a little weird. Anyway, here is the solution that outputs a list of integers as the minimum coinset:
 
 ```elixir
 defmodule Coin do
@@ -23,3 +25,14 @@ end
 ```
 
 ## How it works
+
+```elixir
+iex(2)> Coin.min_coinset 2, [1, 5, 7, 10]
+[1, 1]
+iex(3)> Coin.min_coinset 5, [1, 5, 7, 10]
+[5]
+iex(4)> Coin.min_coinset 11, [1, 5, 7, 10]
+[1, 10]
+iex(5)> Coin.min_coinset 12, [1, 5, 7, 10]
+[5, 7]
+```
