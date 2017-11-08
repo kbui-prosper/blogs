@@ -41,6 +41,15 @@ Don't let this solution intimidate you. There are 3 functions to be aware of:
 
 ## How it works
 
+```elixir
+iex(2)> Fibonacci.fib 1
+1
+iex(3)> Fibonacci.fib 10
+55
+iex(4)> Fibonacci.fib 25
+75025
+```
+
 [Home][home]
 
 [home]: ../README.md
