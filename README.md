@@ -1,5 +1,10 @@
 # Khai Bui's Blogs
 
+## Elixir
+* [Fibonacci Sequence (using Recursion) in Elixir][fib-rec]
+
+[fib-rec]: /elixir/fib_rec.md
+
 ## Data Structures
 * [Building a queue that has constant time enqueue, constant time dequeue (amortized), and constant time access to the maximum (or minimum) value in the queue][queue-constant-max]
 * [Quick Sort in Place (sub-linear space complexity)][quick-sort-in-place]
@@ -22,7 +27,6 @@
 
 [react-bind-this]: /react/bind_this.md
 [arrow-event-handlers]: /react/arrow_event_handlers.md
-
 
 ## Rails + React + Redux
 * [Using Action Cable with React + Redux set up][action-cable-react-redux]
