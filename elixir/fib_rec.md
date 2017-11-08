@@ -13,3 +13,5 @@ defmodule Fibonacci do
   end
 end
 ```
+
+This first solution is pretty self explanatory. The first function captures the base cases, and the second function simply delivers the logic of a fibonacci sequence.
