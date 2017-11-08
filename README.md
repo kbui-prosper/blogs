@@ -1,6 +1,7 @@
 # Khai Bui's Blogs
 
 ## Elixir
+* [Coin Change][coin_change]
 * [Fibonacci Sequence in Elixir][fib]
 * [Unique Characters in String][uniq_char_in_str]
 * [Sentence Reversal][sentence_reversal]
@@ -8,6 +9,7 @@
 [fib]: /elixir/fib.md
 [uniq_char_in_str]: /elixir/uniq_char_in_str.md
 [sentence_reversal]: /elixir/sentence_reversal.md
+[coin_change]: /elixir/coin_change.md
 
 ## Phoenix
 * [Ecto Quick Guide for Going from 1.2x to 1.3x][ecto_guide]
