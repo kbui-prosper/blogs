@@ -39,6 +39,8 @@ Don't let this solution intimidate you. There are 3 functions to be aware of:
 2. `def fib(n), do: fib_helper(0, 1, 1, n)` triggers the helper
 3. The last function has four arguments. The first argument is the previous number in the fibonacci sequence. The second is the current number is the fibonacci sequence. The third is the current index, and the last is the target index. When the current index is the same as the target index, the current number in the fibonacci sequence is returned. Otherwise, it triggers `fib_helper` again but one step forward in the fibonacci sequence.
 
+## How it works
+
 [Home][home]
 
 [home]: ../README.md

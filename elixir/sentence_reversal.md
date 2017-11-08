@@ -13,7 +13,7 @@ defmodule Sentence do
 end
 ```
 
-How it works
+## How it works
 
 ```elixir
 iex(2)> Sentence.reversal "what a weird day"
