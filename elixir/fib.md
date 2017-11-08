@@ -24,13 +24,12 @@ defmodule Fibonacci do
 
   def fib(n), do: fib_helper(0, 1, 1, n)
 
+  defp fib_helper(_prev, curr, curr_i, target_i) when curr_i == target_i do
+    curr
+  end
+
   defp fib_helper(prev, curr, curr_i, target_i) do
-    cond do
-      curr_i == target_i ->
-        curr
-      true ->
-        fib_helper(curr, curr + prev, curr_i + 1, target_i)
-    end
+    fib_helper(curr, curr + prev, curr_i + 1, target_i)
   end
 end
 ```
