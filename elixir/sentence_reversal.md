@@ -4,10 +4,22 @@ This solution reverses the order of the words in a sentence without altering the
 
 ```elixir
 defmodule Sentence do
-  def reversal do
-    
+  def reversal string do
+    string
+    |> String.split(" ")
+    |> Enum.reverse
+    |> Enum.join(" ")
   end
 end
+```
+
+How it works
+
+```elixir
+iex(3)> Sentence.reversal "what a weird day"
+"day weird a what"
+iex(4)> Sentence.reversal "i like sunshine and apple pies"
+"pies apple and sunshine like i"
 ```
 
 [Home][home]
