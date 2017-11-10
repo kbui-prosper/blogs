@@ -37,6 +37,26 @@ iex(5)> Coin.min_coinset 12, [1, 5, 7, 10]
 [5, 7]
 ```
 
+#### List comprehension style!
+
+This is the same solution, but written a little differently
+
+```elixir
+defmodule Coin do
+  def min_coinset(target, coins) do
+    cond do
+      target in coins -> [target]
+
+      true ->
+        for coin <- coins, coin < target do
+          [coin] ++ min_coinset(target - coin, coins)
+        end
+        |> Enum.min_by(&length/1)
+    end
+  end
+end
+```
+
 ## When tuple is expected output
 
 ```elixir
