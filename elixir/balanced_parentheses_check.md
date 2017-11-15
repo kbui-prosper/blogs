@@ -20,6 +20,11 @@ defmodule Parentheses do
     false
   end
 
+  defp balance_check_step paren_list, [] do
+    [current_paren | paren_list] = paren_list
+    balance_check_step paren_list, [current_paren]
+  end
+
   defp balance_check_step paren_list, stack do
     parentheses = %{
       ")" => "(",
@@ -29,14 +34,14 @@ defmodule Parentheses do
 
     closers = Map.keys(parentheses)
     openers = Map.values(parentheses)
-    current_paren = paren_list |> List.first
-    last_in_stack = stack |> List.first
+    [current_paren | paren_list] = paren_list
+    [top_item | stack_remainder] = stack
 
     cond do
       current_paren in openers ->
-        balance_check_step List.delete_at(paren_list, 0) , [current_paren | stack]
-      current_paren in closers && parentheses[current_paren] == last_in_stack ->
-        balance_check_step List.delete_at(paren_list, 0) , List.delete_at(stack, 0)
+        balance_check_step paren_list, [current_paren | stack]
+      current_paren in closers && parentheses[current_paren] == top_item ->
+        balance_check_step paren_list, stack_remainder
       true -> false
     end
   end
