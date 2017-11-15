@@ -16,13 +16,13 @@ defmodule Parentheses do
     true
   end
 
-  defp balance_check_step [], stack do
-    false
-  end
-
   defp balance_check_step paren_list, [] do
     [current_paren | paren_list] = paren_list
     balance_check_step paren_list, [current_paren]
+  end
+
+  defp balance_check_step [], stack do
+    false
   end
 
   defp balance_check_step paren_list, stack do
