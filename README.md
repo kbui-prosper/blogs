@@ -3,11 +3,13 @@
 ## Elixir
 * [Coin Change][coin_change]
 * [Fibonacci Sequence in Elixir][fib]
+* [Balanced Parentheses Check][balanced_parentheses_check]
 * [Unique Characters in String][uniq_char_in_str]
 * [Sentence Reversal][sentence_reversal]
 
 [fib]: /elixir/fib.md
 [uniq_char_in_str]: /elixir/uniq_char_in_str.md
+[balanced_parentheses_check]: /elixir/balanced_parentheses_check.md
 [sentence_reversal]: /elixir/sentence_reversal.md
 [coin_change]: /elixir/coin_change.md
 
