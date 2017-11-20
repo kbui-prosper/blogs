@@ -2,6 +2,7 @@
 
 ## Elixir
 * [Coin Change][coin_change]
+* [Merge Sort][merge_sort]
 * [Fibonacci Sequence in Elixir][fib]
 * [Balanced Parentheses Check][balanced_parentheses_check]
 * [Unique Characters in String][uniq_char_in_str]
@@ -12,6 +13,7 @@
 [balanced_parentheses_check]: /elixir/balanced_parentheses_check.md
 [sentence_reversal]: /elixir/sentence_reversal.md
 [coin_change]: /elixir/coin_change.md
+[merge_sort]: /elixir/merge_sort.md
 
 ## Phoenix
 * [Ecto Quick Guide for Going from 1.2x to 1.3x][ecto_guide]
