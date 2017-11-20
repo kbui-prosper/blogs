@@ -1,8 +1,8 @@
 # Khai Bui's Blogs
 
 ## Elixir
-* [Coin Change][coin_change]
 * [Merge Sort][merge_sort]
+* [Coin Change][coin_change]
 * [Fibonacci Sequence in Elixir][fib]
 * [Balanced Parentheses Check][balanced_parentheses_check]
 * [Unique Characters in String][uniq_char_in_str]
