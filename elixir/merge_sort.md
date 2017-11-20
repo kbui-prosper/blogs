@@ -4,7 +4,7 @@ Simple merge sort implementation in Elixir
 
 ## Implementation
 
-There are 2 functions in this solution: `merge_sort` and helper (private) function `merge`.
+There are 2 functions in this solution: `merge_sort` and the helper (private) function `merge`.
 
 `merge_sort` has 3 pattern-matching cases:
 1. Empty list
