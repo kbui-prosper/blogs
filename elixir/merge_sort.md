@@ -4,10 +4,17 @@ Simple merge sort implementation in Elixir
 
 ## Implementation
 
-There are 2 functions in this solution: `merge_sort` and helper (private) function `merge`. `merge_sort` has 3 pattern-matching cases:
+There are 2 functions in this solution: `merge_sort` and helper (private) function `merge`.
+
+`merge_sort` has 3 pattern-matching cases:
 1. Empty list
 2. List with only 1 item
 3. Any other list
+
+`merge` takes 3 arguments: the left list, the right list, and the result. It also has 3 pattern-matching cases:
+1. Empty left list
+2. Empty right list
+3. Non-empty left list and non-empty right list
 
 ```elixir
 defmodule Sort.MergeSort do
@@ -23,7 +30,7 @@ defmodule Sort.MergeSort do
 
   defp merge([], right_list, result), do: result ++ right_list
   defp merge(left_list, [], result), do: result ++ left_list
-  
+
   defp merge [l_item | l_remain] = l_list, [r_item | r_remain] = r_list, result do
     case l_item < r_item do
       true -> merge l_remain, r_list, result ++ [l_item]
