@@ -30,9 +30,13 @@ defmodule Sort.MergeSort do
 
   defp merge([], [], result), do: result |> Enum.reverse
 
-  defp merge([], [r_item | r_remain], result), do: merge [], r_remain, [r_item | result]
+  defp merge [], [r_item | r_remain], result do
+    merge [], r_remain, [r_item | result]
+  end
 
-  defp merge([l_item | l_remain], [], result), do: merge l_remain, [], [l_item | result]
+  defp merge [l_item | l_remain], [], result do
+    merge l_remain, [], [l_item | result]
+  end
 
   defp merge [l_item | l_remain] = l_list, [r_item | r_remain] = r_list, result do
     case l_item < r_item do
@@ -41,7 +45,6 @@ defmodule Sort.MergeSort do
     end
   end
 end
-
 ```
 
 #### How it works
