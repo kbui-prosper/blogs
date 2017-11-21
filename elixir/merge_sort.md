@@ -17,6 +17,8 @@ There are 2 functions in this solution: `merge_sort` and the helper (private) fu
 3. Empty right list
 4. Non-empty left list and non-empty right list
 
+Note that because appending to lists in Elixir is linear time, I actually had to use prepending and do a reverse for the `merge([], [], result)` case
+
 ```elixir
 defmodule Sort.MergeSort do
   def merge_sort([]), do: []
