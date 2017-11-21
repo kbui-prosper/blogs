@@ -11,10 +11,11 @@ There are 2 functions in this solution: `merge_sort` and the helper (private) fu
 2. List with only 1 item
 3. Any other list
 
-`merge` takes 3 arguments: the left list, the right list, and the result. It also has 3 pattern-matching cases:
-1. Empty left list
-2. Empty right list
-3. Non-empty left list and non-empty right list
+`merge` takes 3 arguments: the left list, the right list, and the result list. It has 4 pattern-matching cases:
+1. Empty left list and empty right list
+2. Empty left list
+3. Empty right list
+4. Non-empty left list and non-empty right list
 
 ```elixir
 defmodule Sort.MergeSort do
