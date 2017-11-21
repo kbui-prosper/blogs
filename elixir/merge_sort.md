@@ -1,6 +1,6 @@
 # Merge Sort
 
-Simple merge sort implementation in Elixir
+Simple merge sort implementation in Elixir.
 
 ## Implementation
 
@@ -28,16 +28,20 @@ defmodule Sort.MergeSort do
     left_list |> merge(right_list, [])
   end
 
-  defp merge([], right_list, result), do: result ++ right_list
-  defp merge(left_list, [], result), do: result ++ left_list
+  defp merge([], [], result), do: result |> Enum.reverse
+
+  defp merge([], [r_item | r_remain], result), do: merge [], r_remain, [r_item | result]
+
+  defp merge([l_item | l_remain], [], result), do: merge l_remain, [], [l_item | result]
 
   defp merge [l_item | l_remain] = l_list, [r_item | r_remain] = r_list, result do
     case l_item < r_item do
-      true -> merge l_remain, r_list, result ++ [l_item]
-      false -> merge l_list, r_remain, result ++ [r_item]
+      true -> merge l_remain, r_list, [l_item | result]
+      false -> merge l_list, r_remain, [r_item | result]
     end
   end
 end
+
 ```
 
 #### How it works
