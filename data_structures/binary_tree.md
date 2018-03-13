@@ -79,3 +79,15 @@ const inorderTraversal = (root) => {
     return [...inorderTraversal(left), val, ...inorderTraversal(right)];
 };
 ```
+
+## Postorder Traversal
+
+### Recursive Approach
+
+```javascript
+const postorderTraversal = (root) => {
+    if (!root) return [];
+    const { left, right, val } = root;
+    return [...postorderTraversal(left), ...postorderTraversal(right), val];
+};
+```
