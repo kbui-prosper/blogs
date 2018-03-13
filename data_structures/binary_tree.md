@@ -82,6 +82,33 @@ const inorderTraversal = (root) => {
 
 ## Postorder Traversal
 
+### Iterative Approach
+
+```javascript
+const postorderTraversal = (root) => {
+    if (!root) return [];
+
+    const output = [];
+    const inStack = [root];
+    const outStack = [];
+
+    while (inStack.length) {
+        const { left, right } = node = inStack.pop();
+        outStack.push(node);
+        if (left) inStack.push(left);
+        if (right) inStack.push(right);
+    }
+
+    while(outStack.length) {
+        const { val } = outStack.pop();
+        output.push(val);
+    }
+
+    return output;
+};
+```
+
+
 ### Recursive Approach
 
 ```javascript
