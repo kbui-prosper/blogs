@@ -9,18 +9,6 @@ class TreeNode {
     this.left = null;
     this.right = null;
   }
-
-  append(side, node) {
-    this[side] = node;
-  }
-
-  appendLeft(node) {
-    append('left', node);
-  }
-
-  appendRight(node) {
-    append('right', node);
-  }
 }
 ```
 
