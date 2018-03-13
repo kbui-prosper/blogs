@@ -21,9 +21,11 @@
 [ecto_guide]: /phoenix/ecto_guide.md
 
 ## Data Structures
+* [Binary Tree][binary-tree]
 * [Building a queue that has constant time enqueue, constant time dequeue (amortized), and constant time access to the maximum (or minimum) value in the queue][queue-constant-max]
 * [Quick Sort in Place (sub-linear space complexity)][quick-sort-in-place]
 
+[binary-tree]: /data_structures/binary_tree.md
 [queue-constant-max]: /data_structures/queue_constant_max.md
 [quick-sort-in-place]:/data_structures/quick_sort_in_place.md
 
