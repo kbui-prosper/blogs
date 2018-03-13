@@ -50,3 +50,28 @@ const preorderTraversal = (root) => {
   return output;
 };
 ```
+
+## Inorder Traversal
+
+### Interative Approach
+
+```javascript
+const inorderTraversal = (root) => {
+    const output = [];
+    const nodeStack = [];
+    let current = root;
+
+    while (current || nodeStack.length) {
+        if (current) {
+            nodeStack.push(current);
+            current = current.left;
+        } else {
+            current = nodeStack.pop();
+            output.push(current.val);
+            current = current.right;
+        }
+    }
+
+    return output;
+};
+```
