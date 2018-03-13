@@ -39,15 +39,9 @@ const preorderTraversal = (root) => {
 
 ```javascript
 const preorderTraversal = (root) => {
-  if (!root) return [];
-
-  const { left, right, val } = root;
-  let output = [val];
-
-  if (left) output = [...output, ...preorderTraversal(left)]
-  if (right) output = [...output, ...preorderTraversal(right)];
-
-  return output;
+    if (!root) return [];
+    const { left, right, val } = root;
+    return [val, ...preorderTraversal(left), ...preorderTraversal(right)];
 };
 ```
 
