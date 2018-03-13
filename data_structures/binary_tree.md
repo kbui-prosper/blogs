@@ -1,4 +1,5 @@
 # Binary Tree
+Note: All are written in JavaScript
 
 ## Definition
 
