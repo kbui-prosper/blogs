@@ -19,9 +19,10 @@ class TreeNode {
 
 ```javascript
 const preorderTraversal = (root) => {
+    if (!root) return [];
+
     const output = [];
-    const nodestack = [];
-    if (root) nodestack.push(root);
+    const nodestack = [root];
 
     while (nodestack.length) {
         const { left, right, val } = nodestack.pop();
@@ -40,6 +41,7 @@ const preorderTraversal = (root) => {
 ```javascript
 const preorderTraversal = (root) => {
     if (!root) return [];
+
     const { left, right, val } = root;
     return [val, ...preorderTraversal(left), ...preorderTraversal(right)];
 };
@@ -75,6 +77,7 @@ const inorderTraversal = (root) => {
 ```javascript
 const inorderTraversal = (root) => {
     if (!root) return [];
+
     const { left, right, val } = root;
     return [...inorderTraversal(left), val, ...inorderTraversal(right)];
 };
@@ -114,6 +117,7 @@ const postorderTraversal = (root) => {
 ```javascript
 const postorderTraversal = (root) => {
     if (!root) return [];
+
     const { left, right, val } = root;
     return [...postorderTraversal(left), ...postorderTraversal(right), val];
 };
